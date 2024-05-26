@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form view for event management -->
+        <record id="view_event_form" model="ir.ui.view">
+            <field name="name">event.management.form</field>
+            <field name="model">event.management</field>
+            <field name="arch" type="xml">
+                <form string="Event">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="communication_start_before"/>
+                        </group>
+                        <group string="Contacts">
+                            <field name="contact_ids">
+                                <tree string="Contacts">
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="phone"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                   
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view for event management -->
+        <record id="view_event_tree" model="ir.ui.view">
+            <field name="name">event.management.tree</field>
+            <field name="model">event.management</field>
+            <field name="arch" type="xml">
+                <tree string="Events">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="communication_start_before"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Tree view for event management -->
+        <record id="view_event_tree" model="ir.ui.view">
+            <field name="name">event.management.tree</field>
+            <field name="model">event.management</field>
+            <field name="arch" type="xml">
+                <tree string="Events">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="communication_start_before"/>
+                </tree>
+            </field>
+        </record>
+    <record id="action_event_management" model="ir.actions.act_window">
+        <field name="name">Events</field>
+        <field name="res_model">event.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_event_tree"/>
+    </record>
+
+   <menuitem id="menu_event_management_root" name="Event Management" sequence="10"/>
+    
+    <!-- Submenu for Events -->
+    <menuitem id="menu_event_management" name="Events" parent="menu_event_management_root" action="action_event_management" sequence="10"/>
+</data>
+    </odoo>

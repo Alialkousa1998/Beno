@@ -1,0 +1,9 @@
+<odoo>
+    
+    <record id="mail_act_event_notification" model="mail.activity.type">
+        <field name="name">Event Notification</field>
+        <field name="res_model">event.management</field>
+        
+    </record>
+
+</odoo>
